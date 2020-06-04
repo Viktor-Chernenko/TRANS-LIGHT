@@ -1,0 +1,9 @@
+mixin news-min(title, text, img_src, img_alt, date_val, date)
+  a(href="#!").grid-item.news-min
+    .news-min__description
+      .title-3=title
+      .news-min__text=text
+    .news-min__box
+      .news-min__img-box
+        img(src=img_src, alt=img_alt).news-min__img.img
+      time(datetime=date_val).news-min__date=date

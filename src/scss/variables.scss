@@ -1,0 +1,63 @@
+$color: (
+    base: #343434,
+    1: #fff,
+    2: #005BC1,
+    3: #979797,
+
+    icon: #005BC1,
+    logo: #fff,
+
+    nav: #fff,
+
+    link: #fff,
+
+    btn: #fff,
+);
+
+$bg: (
+    base: #fff,
+    2: #005BC1,
+
+    btn: #005BC1,
+);
+
+:root {
+    --font-fam-base: 'Open Sans', 'sans-serif';
+    --font-fam-2: 'Oswald', 'sans-serif';
+
+    --wrap-max-width: 1110px;
+}
+
+$fs: (
+    base: 14px,
+
+    title-xl: 48px,
+    title-lg: 30px,
+    title-md: 18px,
+
+    text-xl: 24px,
+    text-lg: 18px,
+    text-md: 16px,
+
+    nav: 14px,
+
+    link: 16px,
+    link-2: 14px,
+
+    btn: 16px,
+);
+
+$params: (
+    text-shadow:  0 2px 2px rgba(0, 0, 0, .5),
+    container-min-width: 320px,
+    container-max-width: 1300px,
+    container-margin: 0 auto,
+    container-padding:  15px,
+    border-radius: 5px,
+    animation-speed: 150ms,
+    animation-middle-speed: 400ms,
+    animation-slow-speed: 600ms,
+    animation: 150ms,
+    animation-middle: 400ms,
+    animation-slow:all 600ms,
+);

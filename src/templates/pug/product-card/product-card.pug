@@ -1,0 +1,17 @@
+mixin product-card(title, img_src, img_alt, text)
+    a(href='#!' title=title).product-card.grid-box
+        .grid-box
+            .grid-2.s-grid-1
+                .grid-item.product-card__img-box
+                    img(src=img_src, alt=img_alt).product-card__img
+                    
+                .grid-item.product-card__description
+                    .text-4=text
+                    ul.list
+                        li.list__item Источник света 12 светодиодов RGBW по 15 Вт каждый
+                        li.list__item Угол раскрытия 7°
+                        li.list__item В комплекте рассеивающая линза 40°
+                        li.list__item Потребляемая мощность 200 Вт
+
+
+        

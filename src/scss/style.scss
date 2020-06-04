@@ -1,0 +1,348 @@
+@import "variables", "core", "common";
+
+// === header ===
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url(../img/main/bg-header.jpg);
+    background-position: center;
+    background-size: cover;
+
+    & > .link-main {
+        position: absolute;
+        top: 10px;
+        left: 40px;
+        z-index: 800;
+    }
+
+    &-box {
+        position: relative;
+        flex-grow: 1;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 39%;
+            height: 100%;
+            content: '';
+            background: rgba(0, 91, 193, 0.6);
+        }
+
+        &__content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 730px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .title-1 {
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .text-2 {
+            max-width: 420px;
+            margin-bottom: 40px;
+        }
+
+        .link-btn {
+            align-self: flex-start;
+        }
+    }
+}
+
+// === our-projects ===
+
+.our-projects {
+    padding-top: 160px;
+    margin-bottom: 150px;
+
+    .top-box {
+        margin-bottom: 55px;
+    }
+}
+
+.project-box {
+    position: relative;
+    display: block;
+    color: var(--color-base);
+
+    &__item {
+        position: absolute;
+        right: 35px;
+        bottom: 30px;
+        display: inline-block;
+        max-width: 250px;
+        padding: 20px 25px;
+        background: var(--bg-base);
+    }
+
+    .title-3 {
+        margin-bottom: 10px;
+    }
+}
+
+// === catalog ===
+
+.catalog {
+    margin-bottom: 130px;
+
+    .top-box {
+        margin-bottom: 50px;
+    }
+
+    .tabs-box {
+        margin-bottom: 50px;
+    }
+
+    .grid-box {
+        &:not(:first-child) {
+            display: none;
+        }
+    }
+
+    .grid-item {
+        --grid-space: 30px;
+    }
+
+    &-item {
+        position: relative;
+        text-decoration: none;
+        border: 3px solid #005BC1;
+
+        &__img {
+            width: 100%;
+        }
+
+        &__description {
+            position: absolute;
+            right: 0;
+            bottom: 15px;
+            display: flex;
+            align-items: center;
+            width: 260px;
+            height: 85px;
+            padding: 15px 20px;
+            background: var(--bg-2);
+        }
+    }
+}
+
+// === equipment-rental ===
+
+.equipment-rental {
+    margin-bottom: 110px;
+
+    .d-flex {
+        align-items: center;
+    }
+
+    &-container {
+        .text-1 {
+            margin-right: 20px;
+        }
+    }
+
+    .top-box {
+        margin-bottom: 30px;
+    }
+
+    .text-1 {
+        max-width: 350px;
+    }
+
+    &-box {
+        max-width: 665px;
+        padding: 30px;
+        margin-left: auto;
+        border: 3px solid #005BC1;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            .btn-box {
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+// === news ===
+
+.news {
+    margin-bottom: 70px;
+
+    .top-box {
+        margin-bottom: 70px;
+    }
+
+    &-box {
+        display: flex;
+
+        &__item {
+            width: calc(50% - 30px);
+            margin-left: 30px;
+        }
+    }
+
+    &-box-main {
+        width: calc(50% - 30px);
+        margin-right: 30px;
+        --grid-space: 30px !important;
+
+        &__top {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 45px;
+        }
+
+        .title-3 {
+            margin-bottom: 0;
+        }
+
+        &__date {
+            display: block;
+            margin-left: auto;
+            color: var(--color-3);
+        }
+
+        &__text {
+            margin-bottom: 20px;
+        }
+    }
+
+    &-min {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--color-base);
+        text-decoration: none;
+        --grid-space: 60px;
+
+        .title-3 {
+            align-content: flex-start;
+        }
+
+        .title-3,
+        &__text {
+            margin-bottom: 20px;
+        }
+
+        &__box {
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        &__img-box {
+            width: 60%;
+            margin-right: 25px;
+        }
+
+        &__date {
+            display: block;
+            margin-left: auto;
+            color: var(--color-3);
+        }
+    }
+}
+
+// === footer ===
+
+.footer {
+    color: var(--color-1);
+    background: var(--bg-2);
+
+    .contact {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 35px 0 25px;
+
+        &::before {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            content: '';
+            background: #fff;
+        }
+    }
+
+    &-nav {
+        position: relative;
+        padding: 25px 0 25px;
+
+        &::before {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            content: '';
+            background: #fff;
+        }
+
+        &__box {
+            display: flex;
+            align-items: center;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: calc(100% / 6);
+        }
+
+        &__link {
+            position: relative;
+            display: inline-block;
+            color: var(--color-nav);
+            text-decoration: none;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            &::before {
+                position: absolute;
+                right: 0;
+                bottom: -2px;
+                left: 50%;
+                width: 0;
+                height: 1px;
+                content: '';
+                background: #fff;
+                transition: .3s;
+            }
+
+            &:hover {
+                &::before {
+                    left: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .rights {
+        padding: 25px 0 25px;
+        text-align: center;
+    }
+}
+// === Main ===
+
+@import "media";

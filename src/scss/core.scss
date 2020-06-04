@@ -1,0 +1,469 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-fam-base);
+    font-size: var(--fs-base);
+    font-weight: normal;
+    line-height: 20px;
+    color: var(--color-base);
+    background: var(--bg-base);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+a,
+button {
+    outline: none;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+.wrap {
+    width: 100%;
+    max-width: var(--wrap-max-width);
+    margin: 0 auto;
+}
+
+$grid-length: 10,9,8,7,6,5,4,3,2,1;
+
+$mgb-mgt-length:0,1,2,3,4,5,6;
+
+$container-sizes: 10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100;
+
+$windowSizes: ( l:1014px, m:808px, s:597px,  sx:425px);
+
+:root {
+    @each $name, $colorValue in $color {
+        --color-#{$name}: #{$colorValue};
+    }
+
+    @each $name, $value in $fs {
+        --fs-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $bg {
+        --bg-#{$name}: #{$value};
+    }
+
+    @each $name, $value in $params {
+        --#{$name}: #{$value};
+    }
+}
+
+@each $hSize in (1, 2, 3, 4) {
+    h#{$hSize},
+    .h#{$hSize} {
+        display: block;
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 700;
+    }
+}
+
+@each $number in $mgb-mgt-length {
+    .mgb#{$number} {
+        margin-bottom: #{$number + 'em'};
+        --grid-item-margin-bottom: #{$number + 'em'};
+    }
+
+    .mgt#{$number} {
+        margin-top: #{$number + 'em'};
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.table {
+    display: table;
+}
+
+.table-cell {
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.table-row {
+    box-sizing: border-box;
+    display: table-row;
+    vertical-align: middle;
+}
+
+.table-cell.right-cell {
+    text-align: right;
+}
+
+$alAlign: ('al-left': ("text-align":"left!important","justify-content":"flex-start",),'al-center': ("text-align":"center!important","justify-content":"center",),'al-right': ("text-align":"right!important","justify-content":"flex-end"));
+
+$vlAlign: ('vl-top': "top!important",'vl-middle': "middle!important",'vl-bottom': "bottom!important",'vl-inline': "baseline!important");
+
+@each $class,$val in $alAlign {
+    .#{$class} {
+        @each $param, $value in $val {
+            #{$param}: #{$value};
+        }
+    }
+}
+
+@each $class,$val in $vlAlign {
+    .#{$class} {
+        vertical-align: #{$val};
+    }
+}
+
+@each $size in $container-sizes {
+    .w#{$size} {
+        width: #{$size + '%'};
+    }
+
+    .h#{$size} {
+        height: #{$size + '%'};
+    }
+}
+
+@each $number in $mgb-mgt-length {
+    .mgb#{$number} {
+        margin-bottom: #{$number + 'em'};
+        --grid-item-margin-bottom: #{$number + 'em'};
+    }
+
+    .mgt#{$number} {
+        margin-top: #{$number + 'em'};
+    }
+}
+
+/* Отступы */
+
+@each $className,$ident in ('0': 0,'10': '1em 0 1em 0','01': '0 1em 0 1em','1': '1em 1em 1em 1em','20': '2em 0 2em 0','02': '0 2em 0 2em','2': '2em 2em 2em 2em','30': '3em 0 3em 0','03': '0 3em 0 3em','3': '3em 3em 3em 3em') {
+    .p#{$className} {
+        padding: #{$ident};
+    }
+
+    .m#{$className} {
+        margin: #{$ident};
+    }
+
+    @each $SizeName,$WindowSize in $windowSizes {
+        @media only screen and (max-width: $WindowSize) {
+            .#{$SizeName}-p#{$className} {
+                padding: #{$ident} !important;
+            }
+
+            .#{$SizeName}-m#{$className} {
+                margin: #{$ident} !important;
+            }
+        }
+    }
+}
+
+@each $SizeName,$WindowSize in $windowSizes {
+    @media only screen and (max-width: $WindowSize) {
+        .scroll-x,
+        .#{$SizeName}-scroll-x {
+            position: relative;
+            display: flex;
+            flex-wrap: nowrap !important;
+            width: auto;
+            margin-right: -1em !important;
+            margin-left: 0 !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+                height: 8px;
+                cursor: pointer;
+                background-color: #ccc;
+                border-radius: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                height: 8px;
+                cursor: pointer;
+                background-color: #000;
+                border-radius: 5px;
+            }
+
+            .grid-item,
+            .scroll-item {
+                min-width: 200px;
+                padding: 0;
+                margin-right: var(--grid-space);
+            }
+        }
+    }
+}
+
+.grid-item {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: calc(100% / var(--grid-size));
+    padding: 0 calc(var(--grid-space) / 2);
+    margin-bottom: 1em;
+}
+
+@each $grid in $grid-length {
+    .grid-#{$grid} {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        margin: 0 calc(calc(var(--grid-space) / 2) - calc((var(--grid-space) / 2) * 2));
+        --grid-space: 1em;
+
+        @if $grid==1 {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+@each $grid in $grid-length {
+    .grid-#{$grid} {
+        --grid-size: #{$grid};
+    }
+}
+
+@each $SizeName,$WindowSize in $windowSizes {
+    @media only screen and (max-width: $WindowSize) {
+        @each $grid in $grid-length {
+            .#{$SizeName}-grid-#{$grid} {
+                --grid-size: #{$grid};
+
+                @if $grid==1 {
+                    margin-right: 0;
+                    margin-left: 0;
+
+                    .grid-item {
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+
+        @each $class,$val in $alAlign {
+            .#{$SizeName}-#{$class} {
+                @each $param,$value in $val {
+                    #{$param}: #{$value};
+                }
+            }
+        }
+
+        @each $class,$val in $vlAlign {
+            .#{$SizeName}-#{$class} {
+                vertical-align: #{$val};
+            }
+        }
+
+        @each $size in $container-sizes {
+            .grid-item.m-w#{$size} {
+                width: #{$size + '%'};
+            }
+
+            .#{$SizeName}-w#{$size} {
+                width: #{$size + '%'};
+            }
+
+            .#{$SizeName}-h#{$size} {
+                height: #{$size + '%'};
+            }
+        }
+
+        .#{$SizeName}-dn {
+            display: none !important;
+        }
+
+        .#{$SizeName}-db {
+            display: block !important;
+        }
+
+        .#{$SizeName}-dib {
+            display: inline-block !important;
+        }
+
+        .#{$SizeName}-al-left {
+            justify-content: flex-start;
+            text-align: left !important;
+        }
+
+        .#{$SizeName}-al-center {
+            justify-content: center;
+            text-align: center !important;
+        }
+
+        .#{$SizeName}-al-right {
+            justify-content: flex-end;
+            text-align: right !important;
+        }
+
+        .#{$SizeName}-vl-top {
+            vertical-align: top !important;
+        }
+
+        .#{$SizeName}-vl-middle {
+            vertical-align: middle !important;
+        }
+
+        .#{$SizeName}-vl-bottom {
+            vertical-align: bottom !important;
+        }
+
+        .#{$SizeName}-hidden {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .#{$SizeName}-visible {
+            position: relative;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            visibility: hidden;
+            opacity: 1;
+        }
+
+        @each $number in $mgb-mgt-length {
+            .#{$SizeName}-mgb#{$number} {
+                margin-bottom: #{$number + 'em'} !important;
+            }
+
+            .#{$SizeName}-mgt#{$number} {
+                margin-top: #{$number + 'em'} !important;
+            }
+        }
+    }
+}
+
+.grid-box {
+    width: 100%;
+    overflow: hidden;
+}
+
+.centered {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mg-left-a {
+    margin-left: auto;
+}
+
+.mg-right-a {
+    margin-right: auto;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.db {
+    display: block;
+}
+
+.dtc {
+    display: table-cell;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.dn {
+    display: none;
+}
+
+.hidden,
+.vh {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.visible,
+.vs {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    visibility: hidden;
+    opacity: 1;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.w33 {
+    width: calc(100% / 3);
+}
+
+.ta-center {
+    text-align: center;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+@each $size in $container-sizes {
+    .w#{$size} {
+        width: #{$size + '%'};
+    }
+
+    .h#{$size} {
+        height: #{$size + '%'};
+    }
+}
+
+@each $number in $mgb-mgt-length {
+    .mgb#{$number} {
+        margin-bottom: #{$number + 'em'};
+        --grid-item-margin-bottom: #{$number + 'em'};
+    }
+
+    .mgt#{$number} {
+        margin-top: #{$number + 'em'};
+    }
+}

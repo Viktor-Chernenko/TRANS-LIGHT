@@ -1,0 +1,258 @@
+@media (max-width: 1110px) {
+    .wrap {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1014px) {
+    .equipment-rental {
+        .d-flex {
+            flex-direction: column;
+        }
+
+        &-container {
+            .text-1 {
+                width: 95%;
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+        }
+
+        &-box {
+            max-width: 100%;
+
+            .title-3 {
+                max-width: 70%;
+            }
+        }
+    }
+
+    .news-box {
+        flex-direction: column;
+
+        &-main,
+        &__item {
+            width: 100%;
+            margin: 0;
+        }
+
+        &-main {
+            margin-bottom: 80px;
+        }
+    }
+}
+
+@media (max-width: 808px) {
+    .title-2 {
+        font-size: 25px;
+    }
+
+    .text-1 {
+        font-size: 16px;
+    }
+
+    .btn-nav {
+        display: block;
+    }
+
+    .btn-swiper {
+        width: 45px;
+        height: 45px;
+    }
+
+    .scroll-top {
+        padding: 10px;
+
+        &__icon {
+            width: 15px;
+            height: 12px;
+        }
+    }
+
+    .nav {
+        padding: 20px 0;
+        background: transparent;
+
+        &-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 888;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            height: 100vh;
+            visibility: hidden;
+            background: rgba(1, 9, 19, 0.8);
+            transform: translateX(130px);
+
+            &_active {
+                visibility: visible;
+                transition: .5s;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .header {
+        position: relative;
+        overflow: hidden;
+
+        .link-main {
+            left: 20px;
+        }
+
+        &::before {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background: rgba(0, 91, 193, 0.6);
+        }
+
+        &-box {
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .our-projects {
+        padding-top: 50px;
+    }
+
+    .catalog {
+        &-item {
+            &__description {
+                width: 240px;
+            }
+        }
+    }
+
+    .footer {
+        .contact {
+            flex-direction: column;
+        }
+
+        .phone-number,
+        .address {
+            margin-bottom: 20px;
+        }
+
+        &-nav {
+            &__box {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            &__item {
+                align-items: center;
+                width: calc(100% / 3);
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 597px) {
+    .btn {
+        font-size: 12px;
+    }
+
+    .nav {
+        &-container {
+            width: 60%;
+            background: rgba(1, 9, 19, 1);
+        }
+    }
+
+    .news {
+        &-min {
+            margin-bottom: 50px;
+
+            &__box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            &__date {
+                order: -1;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .title-1 {
+        font-size: 30px;
+    }
+
+    .title-2 {
+        font-size: 20px;
+    }
+
+    .text-2 {
+        font-size: 12px;
+    }
+
+    .text-3 {
+        font-size: 16px;
+    }
+
+    .title-3 {
+        font-size: 14px;
+    }
+
+    .list {
+        &__item {
+            font-size: 12px;
+        }
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 10px;
+    }
+
+    .btn-swiper {
+        width: 35px;
+        height: 35px;
+    }
+
+    .link-btn {
+        font-size: 12px;
+    }
+
+    .top-box {
+        .icon {
+            width: 65px;
+        }
+    }
+
+    .nav {
+        &-container {
+            width: 100%;
+        }
+    }
+
+    .our-projects {
+        .top-box {
+            margin-bottom: 25px;
+        }
+    }
+
+    .project-box {
+        &__text {
+            font-size: 12px;
+        }
+
+        &__item {
+            max-width: 180px;
+            padding: 10px 15px;
+        }
+    }
+}
