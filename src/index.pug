@@ -1,133 +1,157 @@
-include ./templates/pug/main/header
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title TRANS LIGHT
+    link(rel="stylesheet", href="https://necolas.github.io/normalize.css/latest/normalize.css")
+    link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Oswald&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="https://unpkg.com/swiper/css/swiper.min.css")
+    link(rel="stylesheet", href="./css/style.css")
+    link(rel="apple-touch-icon" sizes="57x57" href="./img/favicons/apple-touch-icon-57x57.png" data-mce-href="./img/favicons/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon" sizes="60x60" href="./img/favicons/apple-touch-icon-60x60.png" data-mce-href="./img/favicons/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon" sizes="72x72" href="./img/favicons/apple-touch-icon-72x72.png" data-mce-href="./img/favicons/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon" sizes="76x76" href="./img/favicons/apple-touch-icon-76x76.png" data-mce-href="./img/favicons/apple-touch-icon-76x76.png")
+    link(rel="apple-touch-icon" sizes="114x114" href="./img/favicons/apple-touch-icon-114x114.png" data-mce-href="./img/favicons/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon" sizes="120x120" href="./img/favicons/apple-touch-icon-120x120.png" data-mce-href="./img/favicons/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon" sizes="144x144" href="./img/favicons/apple-touch-icon-144x144.png" data-mce-href="./img/favicons/apple-touch-icon-144x144.png")
+    link(rel="apple-touch-icon" sizes="152x152" href="./img/favicons/apple-touch-icon-152x152.png" data-mce-href="./img/favicons/apple-touch-icon-152x152.png")
+    link(rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon-180x180.png" data-mce-href="./img/favicons/apple-touch-icon-180x180.png")
+    link(rel="icon" type="image/png" href="./img/favicons/favicon-32x32.png" sizes="32x32" data-mce-href="./img/favicons/favicon-32x32.png")
+    link(rel="icon" type="image/png" href="./img/favicons/android-chrome-192x192.png" sizes="192x192" data-mce-href="./img/favicons/android-chrome-192x192.png")
+    link(rel="icon" type="image/png" href="./img/favicons/favicon-96x96.png" sizes="96x96" data-mce-href="./img/favicons/favicon-96x96.png")
+    link(rel="icon" type="image/png" href="./img/favicons/favicon-16x16.png" sizes="16x16" data-mce-href="./img/favicons/favicon-16x16.png")
+  body
 
-section.our-projects
-  .wrap
-    .top-box
-      svg.icon
-        use(xlink:href="#icon-decor")
-      h2.title-2 Наши проекты
-      .top-box__item
-        button.btn-swiper
-          svg.swiper-prev.icon-arrow
-            use(xlink:href="#icon-slider-arrow-prev")
-        button.btn-swiper
-          svg.swiper-next.icon-arrow
-            use(xlink:href="#icon-slider-arrow-next")
+    include ./templates/pug/main/header
 
-    .swiper-container
-      .swiper-wrapper
-        .swiper-slide
-          a.project-box(href='#!' title='ССК "ОЛИМП"')
-            img.img(src="./img/main/our-projects/item-1.jpg", alt="Пример проекта")
-            .project-box__item
-              .title-3 ССК “ОЛИМП”
-              .project-box__text Световое оформление форума “Шубы-2019”
-          
-        .swiper-slide
-          a.project-box(href='#!' title='ССК "ОЛИМП"')
-            img.img(src="./img/main/our-projects/item-2.jpg", alt="Пример проекта")
-            .project-box__item
-              .title-3 ССК “ОЛИМП”
-              .project-box__text Световое оформление форума “Шубы-2019”
-          
-        .swiper-slide
-          a.project-box(href='#!' title='ССК "ОЛИМП"')
-            img.img(src="./img/main/our-projects/item-1.jpg", alt="Пример проекта")
-            .project-box__item
-              .title-3 ССК “ОЛИМП”
-              .project-box__text Световое оформление форума “Шубы-2019”
-          
-        .swiper-slide
-          a.project-box(href='#!' title='ССК "ОЛИМП"')
-            img.img(src="./img/main/our-projects/item-2.jpg", alt="Пример проекта")
-            .project-box__item
-              .title-3 ССК “ОЛИМП”
-              .project-box__text Световое оформление форума “Шубы-2019”
-
-section.catalog
-  .wrap
-    .top-box
-      svg.icon
-        use(xlink:href="#icon-decor")
-      h2.title-2 Каталог продукции
-
-    .tabs-box
-      include ./templates/pug/ui/tab
-      +tab('Robe', 'tab__label_active')
-      +tab('Compulite')
-
-    .catalog-box
-      .grid-box
-        .grid-3.l-grid-2.s-grid-1
-          include ./templates/pug/main/catalog-item
-          .grid-item
-            +catalog-item('./img/main/catalog/item-1.jpg', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы')
-          .grid-item
-            +catalog-item('./img/main/catalog/item-2.jpg', 'Контроллеры', 'Контроллеры', 'Контроллеры')
-          .grid-item
-            +catalog-item('./img/main/catalog/item-3.jpg', 'Аксессуары', 'Аксессуары', 'Аксессуары')
-
-      .grid-box
-        .grid-3.l-grid-2.s-grid-1
-          include ./templates/pug/main/catalog-item
-          .grid-item
-            +catalog-item('./img/main/catalog/item-3.jpg', 'Аксессуары', 'Аксессуары', 'Аксессуары')
-          .grid-item
-            +catalog-item('./img/main/catalog/item-2.jpg', 'Контроллеры', 'Контроллеры', 'Контроллеры')
-          .grid-item
-            +catalog-item('./img/main/catalog/item-1.jpg', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы')
-
-section.equipment-rental
-  .wrap
-    .top-box
-      svg.icon
-        use(xlink:href="#icon-decor")
-      h2.title-2 Аренда оборудования
-    .equipment-rental-container.d-flex
-      .text-1.text-1_f-fam Мы занимаемся прокатом светового и сценического оборудования ведущих мировых производителей, таких как Robe, SGM, StudioDue, ChainMaster, Milos, Universal Effects, ArtLighting, MobilTech, Lampo, Martin, Spotlight, Compulite, Eurolite и др.
-      .equipment-rental-box
-        .equipment-rental-box__item
-          .title-3 Новое оборудование, предоставляемое в аренду:
-          .btn-box
+    section.our-projects
+      .wrap
+        .top-box
+          svg.icon
+            use(xlink:href="#icon-decor")
+          h2.title-2 Наши проекты
+          .top-box__item
             button.btn-swiper
               svg.swiper-prev.icon-arrow
                 use(xlink:href="#icon-slider-arrow-prev")
             button.btn-swiper
               svg.swiper-next.icon-arrow
                 use(xlink:href="#icon-slider-arrow-next")
-        include ./templates/pug/product-card/product-card
+
         .swiper-container
           .swiper-wrapper
             .swiper-slide
-              +product-card('Robe Robin ParFect 100', './img/main/catalog/item-3.jpg', 'Robe Robin ParFect 100', 'Robe Robin ParFect 100')
+              a.project-box(href='#!' title='ССК "ОЛИМП"')
+                img.img(src="./img/main/our-projects/item-1.jpg", alt="Пример проекта")
+                .project-box__item
+                  .title-3 ССК “ОЛИМП”
+                  .project-box__text Световое оформление форума “Шубы-2019”
+              
             .swiper-slide
-              +product-card('Robe Robin ParFect 200', './img/main/catalog/item-2.jpg', 'Robe Robin ParFect 200', 'Robe Robin ParFect 200')
+              a.project-box(href='#!' title='ССК "ОЛИМП"')
+                img.img(src="./img/main/our-projects/item-2.jpg", alt="Пример проекта")
+                .project-box__item
+                  .title-3 ССК “ОЛИМП”
+                  .project-box__text Световое оформление форума “Шубы-2019”
+              
             .swiper-slide
-              +product-card('Robe Robin ParFect 300', './img/main/catalog/item-1.jpg', 'Robe Robin ParFect 300', 'Robe Robin ParFect 300')
+              a.project-box(href='#!' title='ССК "ОЛИМП"')
+                img.img(src="./img/main/our-projects/item-1.jpg", alt="Пример проекта")
+                .project-box__item
+                  .title-3 ССК “ОЛИМП”
+                  .project-box__text Световое оформление форума “Шубы-2019”
+              
+            .swiper-slide
+              a.project-box(href='#!' title='ССК "ОЛИМП"')
+                img.img(src="./img/main/our-projects/item-2.jpg", alt="Пример проекта")
+                .project-box__item
+                  .title-3 ССК “ОЛИМП”
+                  .project-box__text Световое оформление форума “Шубы-2019”
 
-section.news
-  .wrap
-    .top-box
-      svg.icon
-        use(xlink:href="#icon-decor")
-      h2.title-2 Новости
-      .top-box__item
-        button.btn Все новости
-    .news-box.grid-box
-      .grid-2.s-grid-1.news-box-main
-        .grid-item.news-box-main__img-box
-          img(src="./img/main/news/item-1.jpg", alt="Семинар Milos").news-box-main__img.img
-        .grid-item.news-box-main__description
-          .news-box-main__top
-            h4.title-3 Семинар Milos
-            time(datetime="2019-01-27").news-box-main__date 27.01.2019
-          .news-box-main__text Наши сотрудники прошли последний семинар от компании Milos. Они получили новый объем знаний, который позволит нашей компании заниматься оборудованием не только мероприятий, но производственных помещений.
-          a(href="#!").link-2.link-2_color Читать полностью...
+      .wrap
+        .top-box
+          svg.icon
+            use(xlink:href="#icon-decor")
+          h2.title-2 Каталог продукции
 
-      .grid-2.s-grid-1.news-box__item
-        include ./templates/pug/main/news-min
-        +news-min('Выставка Prolight+Sound NAMM Russia 2016', '30 контрактов, тысячи восторженных посетителей...', './img/main/news/item-2.jpg', 'Выставка Prolight+Sound', '2019-01-27', '27.01.2019')
-        +news-min('Семинар Robe', '30 января 2017 года наши сотрудники побывали в Берлине..', './img/main/news/item-3.jpg', 'Семинар Robe', '2019-01-27', '27.01.2019')
+        .tabs-box
+          include ./templates/pug/ui/tab
+          +tab('Robe', 'tab__label_active')
+          +tab('Compulite')
+
+        .catalog-box
+          .grid-box
+            .grid-3.l-grid-2.s-grid-1
+              include ./templates/pug/main/catalog-item
+              .grid-item
+                +catalog-item('./img/main/catalog/item-1.jpg', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы')
+              .grid-item
+                +catalog-item('./img/main/catalog/item-2.jpg', 'Контроллеры', 'Контроллеры', 'Контроллеры')
+              .grid-item
+                +catalog-item('./img/main/catalog/item-3.jpg', 'Аксессуары', 'Аксессуары', 'Аксессуары')
+
+          .grid-box
+            .grid-3.l-grid-2.s-grid-1
+              include ./templates/pug/main/catalog-item
+              .grid-item
+                +catalog-item('./img/main/catalog/item-3.jpg', 'Аксессуары', 'Аксессуары', 'Аксессуары')
+              .grid-item
+                +catalog-item('./img/main/catalog/item-2.jpg', 'Контроллеры', 'Контроллеры', 'Контроллеры')
+              .grid-item
+                +catalog-item('./img/main/catalog/item-1.jpg', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы', 'Статичные светодиодные приборы')
+
+    section.equipment-rental
+      .wrap
+        .top-box
+          svg.icon
+            use(xlink:href="#icon-decor")
+          h2.title-2 Аренда оборудования
+        .equipment-rental-container.d-flex
+          .text-1.text-1_f-fam Мы занимаемся прокатом светового и сценического оборудования ведущих мировых производителей, таких как Robe, SGM, StudioDue, ChainMaster, Milos, Universal Effects, ArtLighting, MobilTech, Lampo, Martin, Spotlight, Compulite, Eurolite и др.
+          .equipment-rental-box
+            .equipment-rental-box__item
+              .title-3 Новое оборудование, предоставляемое в аренду:
+              .btn-box
+                button.btn-swiper
+                  svg.swiper-prev.icon-arrow
+                    use(xlink:href="#icon-slider-arrow-prev")
+                button.btn-swiper
+                  svg.swiper-next.icon-arrow
+                    use(xlink:href="#icon-slider-arrow-next")
+            include ./templates/pug/product-card/product-card
+            .swiper-container
+              .swiper-wrapper
+                .swiper-slide
+                  +product-card('Robe Robin ParFect 100', './img/main/catalog/item-3.jpg', 'Robe Robin ParFect 100', 'Robe Robin ParFect 100')
+                .swiper-slide
+                  +product-card('Robe Robin ParFect 200', './img/main/catalog/item-2.jpg', 'Robe Robin ParFect 200', 'Robe Robin ParFect 200')
+                .swiper-slide
+                  +product-card('Robe Robin ParFect 300', './img/main/catalog/item-1.jpg', 'Robe Robin ParFect 300', 'Robe Robin ParFect 300')
+
+    section.news
+      .wrap
+        .top-box
+          svg.icon
+            use(xlink:href="#icon-decor")
+          h2.title-2 Новости
+          .top-box__item
+            button.btn Все новости
+        .news-box.grid-box
+          .grid-2.s-grid-1.news-box-main
+            .grid-item.news-box-main__img-box
+              img(src="./img/main/news/item-1.jpg", alt="Семинар Milos").news-box-main__img.img
+            .grid-item.news-box-main__description
+              .news-box-main__top
+                h4.title-3 Семинар Milos
+                time(datetime="2019-01-27").news-box-main__date 27.01.2019
+              .news-box-main__text Наши сотрудники прошли последний семинар от компании Milos. Они получили новый объем знаний, который позволит нашей компании заниматься оборудованием не только мероприятий, но производственных помещений.
+              a(href="#!").link-2.link-2_color Читать полностью...
+
+          .grid-2.s-grid-1.news-box__item
+            include ./templates/pug/main/news-min
+            +news-min('Выставка Prolight+Sound NAMM Russia 2016', '30 контрактов, тысячи восторженных посетителей...', './img/main/news/item-2.jpg', 'Выставка Prolight+Sound', '2019-01-27', '27.01.2019')
+            +news-min('Семинар Robe', '30 января 2017 года наши сотрудники побывали в Берлине..', './img/main/news/item-3.jpg', 'Семинар Robe', '2019-01-27', '27.01.2019')
 
 
-include ./templates/pug/main/footer
+    include ./templates/pug/main/footer
