@@ -9,8 +9,8 @@ const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const sass = require('gulp-sass');
-var pug = require('gulp-pug');
-var htmlbeautify = require('gulp-html-beautify');
+const pug = require('gulp-pug');
+const beautify = require('gulp-jsbeautifier');
 const reload = browserSync.reload;
 
 // === Пути ===
@@ -45,7 +45,7 @@ const src = {
       input: {
          basis:'./index.html',
          all: './src/pages/**/*',
-         bounty: './**/*.html'
+         beautify: './**/*.html'
       }
    },
 
@@ -77,13 +77,9 @@ const src = {
 
 // === task ===
 
-gulp.task('htmlbeautify', function() {
-   var options = {
-      "indent_size": 2
-  }
-
-   gulp.src('./**/*.html')
-    .pipe(htmlbeautify(options))
+gulp.task('beautify', function() {
+  gulp.src('./**/*.html')
+    .pipe(beautify())
     .pipe(gulp.dest('./'))
 });
 
@@ -94,6 +90,7 @@ gulp.task('pug_pages', function() {
       console.log(err);
       this.emit('end');
    })
+   .pipe(beautify(this))
    .pipe(gulp.dest(src.pug.output_pages))
    .pipe(reload({ stream: true }))
 });
@@ -105,6 +102,7 @@ gulp.task('pug_pages', function() {
       console.log(err);
       this.emit('end');
    })
+   .pipe(beautify(this))
    .pipe(gulp.dest(src.pug.output_index))
    .pipe(reload({ stream: true }))
  });
@@ -116,6 +114,7 @@ gulp.task('pug_pages', function() {
       console.log(err);
       this.emit('end');
    })
+   .pipe(beautify(this))
    .pipe(gulp.dest(src.pug.output_templates))
    .pipe(reload({ stream: true }))
  });
@@ -201,12 +200,10 @@ gulp.task('watch', () => {
    });
 });
 
-gulp.watch(([src.pug.input_pug, src.pug.input_index, src.pug.input_pages]), gulp.series('pug_templates', 'pug_pages', 'pug_index', 'htmlbeautify'));
+gulp.watch(([src.pug.input_pug, src.pug.input_index, src.pug.input_pages]), gulp.series('pug_templates', 'pug_pages', 'pug_index'));
 gulp.watch(src.img.input, gulp.series('img-compress'));
 gulp.watch((src.style.input.all), gulp.series('styles'));
 gulp.watch(src.fonts.input, gulp.series('fonts'));
 gulp.watch(src.script.input, gulp.series('scripts-2', 'scripts'));
-gulp.watch(src.html.input.bounty, gulp.series('htmlbeautify'));
 
-
-gulp.task('default', gulp.series('del', gulp.parallel('styles', 'scripts', 'img-compress', 'fonts', 'jsAll', 'pug_templates', 'pug_pages', 'pug_index'), 'watch'));
+gulp.task('default', gulp.series('del', gulp.parallel('styles', 'scripts','pug_templates', 'pug_pages', 'pug_index', 'img-compress', 'fonts', 'jsAll'), 'watch'));
