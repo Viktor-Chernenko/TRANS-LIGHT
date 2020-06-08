@@ -1,9 +1,12 @@
-mixin product-card(title, img_src, img_alt, text)
+mixin product-card(title, img_src, img_mobile, img_alt, text)
     a(href='#!' title=title).product-card.grid-box
         .grid-box
             .grid-2.s-grid-1
                 .grid-item.product-card__img-box
-                    img(src=img_src, alt=img_alt).product-card__img
+                    picture.img.product-card__img
+                        source(srcset=img_mobile media="(max-width: 500px)" type="image/jpg")
+                        img(src=img_src, alt=img_alt)
+                        
                     
                 .grid-item.product-card__description
                     .text-4=text

@@ -2395,6 +2395,8 @@ h4,
 .img {
   display: block;
   width: 100%; }
+  .img img {
+    width: 100%; }
 
 .nav {
   position: relative;
@@ -2963,6 +2965,8 @@ h4,
   .nav-container {
     width: 60%;
     background: #010913; }
+  .header {
+    background-image: url(../img/main/bg-header_mobile.jpg); }
   .news-min {
     margin-bottom: 50px; }
     .news-min__box {

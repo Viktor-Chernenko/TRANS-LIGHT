@@ -1,5 +1,8 @@
-mixin catalog-item(img_src, img_alt, text, title)
+mixin catalog-item(img_src, img_mobile, img_alt, text, title)
   a(href="#!" title=title).catalog-item
-    img.catalog-item__img(src=img_src, alt=img_alt)
+    picture.img.catalog-item__img
+      source(srcset=img_mobile media="(max-width: 500px)" type="image/jpg")
+      img(src=img_src, alt=img_alt)
+    
     .catalog-item__description
       .text-1.text-1_color.text-1_uppercase=text
