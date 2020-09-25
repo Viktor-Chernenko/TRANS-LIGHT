@@ -24,7 +24,7 @@ $(document).ready(function () {
   }); // === / slider ===
   // === Scroll top ===
 
-  $.fn.scrollToTop = function () {
+$.fn.scrollToTop = function () {
     $(this).hide().removeAttr("href");
 
     if ($(window).scrollTop() != "0") {
@@ -46,8 +46,12 @@ $(document).ready(function () {
     });
   };
 });
+
+$("#scroll-top").scrollToTop();
+
+// === / Scroll top ===
+
 $(function () {
-  $("#scroll-top").scrollToTop(); // === / Scroll top ===
   // === tabs ===
 
   if ($(".tab__label").length > 0) {
